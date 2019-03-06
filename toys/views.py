@@ -14,7 +14,7 @@ from rest_framework.response import Response
 
 @api_view(['GET', 'POST'])
 def toy_list(request):
-    """Для получения списка элементов. """
+    """Для получения списка элементов. Или добавления одного элемента."""
     if request.method == 'GET':
         toys = Toy.objects.all()
         toys_serializer = ToySerializer(toys, many=True)
@@ -32,7 +32,7 @@ def toy_list(request):
 
 @api_view(['GET', 'PUT', 'DELETE'])
 def toy_detail(request, pk):
-    """Для получения/изменения/отправки одного элемента."""
+    """Для получения/изменения/удаления одного элемента."""
     try:
         toy = Toy.objects.get(pk=pk)
     except Toy.DoesNotExist:
