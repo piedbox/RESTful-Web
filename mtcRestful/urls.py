@@ -15,9 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-# import toys.views as toys
+import mainapp.views as mainapp
+import authapp.views as authapp
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('toys.urls')),
+    path('', RedirectView.as_view(url='/auth/login')),
+    path('items/', include('mainapp.urls')),
+    path('auth/', include(('authapp.urls', authapp), namespace='auth')),
+    path('items/toys/', mainapp.ToysList.as_view(), name='all_toys')
 ]
