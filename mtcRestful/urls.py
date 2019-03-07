@@ -19,6 +19,9 @@ import mainapp.views as mainapp
 import authapp.views as authapp
 from django.views.generic.base import RedirectView
 
+handler500 = 'authapp.views.handler404'
+handler404 = 'authapp.views.handler404'
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', RedirectView.as_view(url='/auth/login')),

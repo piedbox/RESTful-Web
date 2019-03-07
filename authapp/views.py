@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponseRedirect
+from django.shortcuts import render, HttpResponseRedirect, render_to_response
 from authapp.forms import UsersLoginForm, UsersRegisterForm
 from django.contrib import auth
 from django.urls import reverse
@@ -64,3 +64,9 @@ def edit(request):
 
     content = {'title': title, 'edit_form': edit_form}
     return render(request, 'authapp/edit.html', content)
+
+
+def handler404(request, template_name="authapp/404.html"):
+    response = render_to_response("authapp/404.html")
+    response.status_code = 404
+    return response
