@@ -1,0 +1,32 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    font-family:  Verdana, Tahoma, Arial, sans-serif;
+    color: #555;
+    background-color: #fefefe;
+}
+div.err_img{
+    margin: 0 auto;
+    max-width: 46em;
+    min-height: 29em;
+    background-image: url('../img/404_.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+}
+p{
+    display: block;
+    text-align: center;
+    font-size: 1.3em;
+    padding-bottom: .1em;
+}
+a{
+    text-decoration: underline;
+    color:#555;
+    font-weight: bolder;
+}
+a:hover{
+    color:#922;
+}

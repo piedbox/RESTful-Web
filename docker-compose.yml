@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  nginx:
+    image: nginx:latest
+    container_name: ng03
+    ports:
+      - "80:8000"
+    volumes:
+      - .:/src
+      - ./nginx:/etc/nginx/conf.d
+    depends_on:
+      - web
+    network_mode: 'bridge'
+
+
+
+  web:
+    build: .
+    command: bash -c "cd mtcRestful && python manage.py makemigrations && python manage.py migrate && python manage.py runserver --insecure 0.0.0.0:8000"
+    volumes:
+      - .:/src
+    ports:
+      - "8000:8000"
