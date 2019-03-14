@@ -2,7 +2,7 @@ version: '3.7'
 services:
   nginx:
     image: nginx:latest
-    container_name: ng03
+    container_name: ng07
     ports:
       - "80:8000"
     volumes:
@@ -10,7 +10,6 @@ services:
       - ./nginx:/etc/nginx/conf.d
     depends_on:
       - web
-    network_mode: 'bridge'
 
 
 
